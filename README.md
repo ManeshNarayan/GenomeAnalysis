@@ -1,2 +1,2 @@
 # GenomeAnalysis
-Contains scripts used for sequence searches and genome analysis
+Contains scripts used for sequence searches and genome analysis.
