@@ -1,0 +1,22 @@
+
+import xlsxwriter
+import os,sys
+
+
+workbook = xlsxwriter.Workbook('AddThese.xlsx')
+worksheet = workbook.add_worksheet()
+
+addr = ["tgtcaa-tgtcaa","tgtcaa-tgtcac","tgtcaa-tgtcag","tgtcaa-tgtcat","tgtcaa-tgtcca","tgtcaa-tgtccc","tgtcaa-tgtccg","tgtcaa-tgtcct","tgtcaa-tgtcga","tgtcaa-tgtcgc","tgtcaa-tgtcgg","tgtcaa-tgtcgt","tgtcaa-tgtcta","tgtcaa-tgtctc","tgtcaa-tgtctg","tgtcaa-tgtctt","tgtcac-tgtcaa","tgtcac-tgtcac","tgtcac-tgtcag","tgtcac-tgtcat","tgtcac-tgtcca","tgtcac-tgtccc","tgtcac-tgtccg","tgtcac-tgtcct","tgtcac-tgtcga","tgtcac-tgtcgc","tgtcac-tgtcgg","tgtcac-tgtcgt","tgtcac-tgtcta","tgtcac-tgtctc","tgtcac-tgtctg","tgtcac-tgtctt","tgtcag-tgtcaa","tgtcag-tgtcac","tgtcag-tgtcag","tgtcag-tgtcat","tgtcag-tgtcca","tgtcag-tgtccc","tgtcag-tgtccg","tgtcag-tgtcct","tgtcag-tgtcga","tgtcag-tgtcgc","tgtcag-tgtcgg","tgtcag-tgtcgt","tgtcag-tgtcta","tgtcag-tgtctc","tgtcag-tgtctg","tgtcag-tgtctt","tgtcat-tgtcaa","tgtcat-tgtcac","tgtcat-tgtcag","tgtcat-tgtcat","tgtcat-tgtcca","tgtcat-tgtccc","tgtcat-tgtccg","tgtcat-tgtcct","tgtcat-tgtcga","tgtcat-tgtcgc","tgtcat-tgtcgg","tgtcat-tgtcgt","tgtcat-tgtcta","tgtcat-tgtctc","tgtcat-tgtctg","tgtcat-tgtctt","tgtcca-tgtcaa","tgtcca-tgtcac","tgtcca-tgtcag","tgtcca-tgtcat","tgtcca-tgtcca","tgtcca-tgtccc","tgtcca-tgtccg","tgtcca-tgtcct","tgtcca-tgtcga","tgtcca-tgtcgc","tgtcca-tgtcgg","tgtcca-tgtcgt","tgtcca-tgtcta","tgtcca-tgtctc","tgtcca-tgtctg","tgtcca-tgtctt","tgtccc-tgtcaa","tgtccc-tgtcac","tgtccc-tgtcag","tgtccc-tgtcat","tgtccc-tgtcca","tgtccc-tgtccc","tgtccc-tgtccg","tgtccc-tgtcct","tgtccc-tgtcga","tgtccc-tgtcgc","tgtccc-tgtcgg","tgtccc-tgtcgt","tgtccc-tgtcta","tgtccc-tgtctc","tgtccc-tgtctg","tgtccc-tgtctt","tgtccg-tgtcaa","tgtccg-tgtcac","tgtccg-tgtcag","tgtccg-tgtcat","tgtccg-tgtcca","tgtccg-tgtccc","tgtccg-tgtccg","tgtccg-tgtcct","tgtccg-tgtcga","tgtccg-tgtcgc","tgtccg-tgtcgg","tgtccg-tgtcgt","tgtccg-tgtcta","tgtccg-tgtctc","tgtccg-tgtctg","tgtccg-tgtctt","tgtcct-tgtcaa","tgtcct-tgtcac","tgtcct-tgtcag","tgtcct-tgtcat","tgtcct-tgtcca","tgtcct-tgtccc","tgtcct-tgtccg","tgtcct-tgtcct","tgtcct-tgtcga","tgtcct-tgtcgc","tgtcct-tgtcgg","tgtcct-tgtcgt","tgtcct-tgtcta","tgtcct-tgtctc","tgtcct-tgtctg","tgtcct-tgtctt","tgtcga-tgtcaa","tgtcga-tgtcac","tgtcga-tgtcag","tgtcga-tgtcat","tgtcga-tgtcca","tgtcga-tgtccc","tgtcga-tgtccg","tgtcga-tgtcct","tgtcga-tgtcga","tgtcga-tgtcgc","tgtcga-tgtcgg","tgtcga-tgtcgt","tgtcga-tgtcta","tgtcga-tgtctc","tgtcga-tgtctg","tgtcga-tgtctt","tgtcgc-tgtcaa","tgtcgc-tgtcac","tgtcgc-tgtcag","tgtcgc-tgtcat","tgtcgc-tgtcca","tgtcgc-tgtccc","tgtcgc-tgtccg","tgtcgc-tgtcct","tgtcgc-tgtcga","tgtcgc-tgtcgc","tgtcgc-tgtcgg","tgtcgc-tgtcgt","tgtcgc-tgtcta","tgtcgc-tgtctc","tgtcgc-tgtctg","tgtcgc-tgtctt","tgtcgg-tgtcaa","tgtcgg-tgtcac","tgtcgg-tgtcag","tgtcgg-tgtcat","tgtcgg-tgtcca","tgtcgg-tgtccc","tgtcgg-tgtccg","tgtcgg-tgtcct","tgtcgg-tgtcga","tgtcgg-tgtcgc","tgtcgg-tgtcgg","tgtcgg-tgtcgt","tgtcgg-tgtcta","tgtcgg-tgtctc","tgtcgg-tgtctg","tgtcgg-tgtctt","tgtcgt-tgtcaa","tgtcgt-tgtcac","tgtcgt-tgtcag","tgtcgt-tgtcat","tgtcgt-tgtcca","tgtcgt-tgtccc","tgtcgt-tgtccg","tgtcgt-tgtcct","tgtcgt-tgtcga","tgtcgt-tgtcgc","tgtcgt-tgtcgg","tgtcgt-tgtcgt","tgtcgt-tgtcta","tgtcgt-tgtctc","tgtcgt-tgtctg","tgtcgt-tgtctt","tgtcta-tgtcaa","tgtcta-tgtcac","tgtcta-tgtcag","tgtcta-tgtcat","tgtcta-tgtcca","tgtcta-tgtccc","tgtcta-tgtccg","tgtcta-tgtcct","tgtcta-tgtcga","tgtcta-tgtcgc","tgtcta-tgtcgg","tgtcta-tgtcgt","tgtcta-tgtcta","tgtcta-tgtctc","tgtcta-tgtctg","tgtcta-tgtctt","tgtctc-tgtcaa","tgtctc-tgtcac","tgtctc-tgtcag","tgtctc-tgtcat","tgtctc-tgtcca","tgtctc-tgtccc","tgtctc-tgtccg","tgtctc-tgtcct","tgtctc-tgtcga","tgtctc-tgtcgc","tgtctc-tgtcgg","tgtctc-tgtcgt","tgtctc-tgtcta","tgtctc-tgtctc","tgtctc-tgtctg","tgtctc-tgtctt","tgtctg-tgtcaa","tgtctg-tgtcac","tgtctg-tgtcag","tgtctg-tgtcat","tgtctg-tgtcca","tgtctg-tgtccc","tgtctg-tgtccg","tgtctg-tgtcct","tgtctg-tgtcga","tgtctg-tgtcgc","tgtctg-tgtcgg","tgtctg-tgtcgt","tgtctg-tgtcta","tgtctg-tgtctc","tgtctg-tgtctg","tgtctg-tgtctt","tgtctt-tgtcaa","tgtctt-tgtcac","tgtctt-tgtcag","tgtctt-tgtcat","tgtctt-tgtcca","tgtctt-tgtccc","tgtctt-tgtccg","tgtctt-tgtcct","tgtctt-tgtcga","tgtctt-tgtcgc","tgtctt-tgtcgg","tgtctt-tgtcgt","tgtctt-tgtcta","tgtctt-tgtctc","tgtctt-tgtctg","tgtctt-tgtctt"]
+
+col = 1
+for motif in addr:
+	row = 0
+	worksheet.write(row, col, motif)
+	row+=1
+	for i in range(1,31):
+		val = open(motif+"/"+"spacer"+str(i)+".txt", 'r').read().count("\n")
+		worksheet.write(row, col, val)
+		row+=1
+	col+=1
+
+workbook.close()
